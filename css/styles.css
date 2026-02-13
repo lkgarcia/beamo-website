@@ -259,11 +259,11 @@ p { max-width: 640px; }
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 40%, rgba(0, 184, 168, 0.35) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 80% at 70% 20%, rgba(180, 235, 69, 0.3) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 50% at 80% 70%, rgba(249, 248, 113, 0.22) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 30% 80%, rgba(109, 215, 148, 0.26) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(255, 204, 150, 0.16) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 60% at 20% 40%, rgba(0, 184, 168, 0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 70% 20%, rgba(180, 235, 69, 0.4) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 80% 70%, rgba(249, 248, 113, 0.32) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 30% 80%, rgba(109, 215, 148, 0.36) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(255, 204, 150, 0.26) 0%, transparent 60%);
   background-color: var(--white);
   animation: meshFloat 20s ease-in-out infinite alternate;
 }
