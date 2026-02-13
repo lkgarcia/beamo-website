@@ -56,7 +56,7 @@ img {
 h1, h2, h3, h4 {
   line-height: 1.2;
   font-weight: 700;
-  color: #2d2d2d;
+  color: #4d4d4d;
 }
 
 h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
@@ -84,7 +84,7 @@ p { max-width: 640px; }
   font-weight: 600;
   font-size: 0.95rem;
   border: none;
-  border-radius: 50px;
+  border-radius: 16px;
   cursor: pointer;
   transition: all var(--transition);
   text-decoration: none;
@@ -93,7 +93,7 @@ p { max-width: 640px; }
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent-green));
+  background: linear-gradient(135deg, var(--primary), var(--accent-yellow));
   background-size: 200% 200%;
   background-position: 0% 50%;
   color: var(--white);
@@ -102,15 +102,17 @@ p { max-width: 640px; }
 }
 
 .btn-primary:hover {
-  background-position: 100% 50%;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(0, 184, 168, 0.35);
-  filter: brightness(1.05);
+  background-position: 70% 50%;
+  /* transform: translateY(-2px); */
+  /* box-shadow: 0 6px 24px rgba(0, 184, 168, 0.35); */
+  /* filter: brightness(1.05); */
 }
 
 .btn-primary span,
 .btn-primary:not(:empty) {
   position: relative;
+  color: var(--white);
+  transition: all var(--transition);
   z-index: 1;
 }
 
@@ -124,7 +126,6 @@ p { max-width: 640px; }
 .btn-outline:hover {
   background: var(--primary);
   color: var(--white);
-  transform: translateY(-2px);
 }
 
 .btn-sm { padding: 10px 24px; font-size: 0.875rem; }
@@ -427,7 +428,7 @@ p { max-width: 640px; }
 }
 
 .feature-card:hover {
-  transform: translateY(-4px);
+  /* transform: translateY(-4px); */
   box-shadow: var(--shadow-hover);
   border-color: rgba(0, 184, 168, 0.15);
 }
@@ -577,11 +578,11 @@ p { max-width: 640px; }
   transform: translate(-50%, -50%);
   width: 90%;
   max-width: 400px;
-  border-radius: var(--radius);
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 10px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
   overflow: hidden;
 }
@@ -591,7 +592,7 @@ p { max-width: 640px; }
   align-items: center;
   gap: 12px;
   padding: 10px 14px;
-  background: rgba(245, 245, 245, 0.9);
+  background: rgba(220, 220, 220, 1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -613,7 +614,7 @@ p { max-width: 640px; }
 
 .browser-url-bar {
   flex: 1;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(245, 245, 245, 1);
   border-radius: 6px;
   padding: 4px 12px;
   font-size: 0.75rem;
@@ -624,7 +625,7 @@ p { max-width: 640px; }
 
 .browser-body {
   padding: 20px 16px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(245, 245, 245, 1);
   font-family: 'SF Mono', 'Fira Code', monospace;
   font-size: 0.85rem;
   display: flex;
@@ -843,17 +844,17 @@ p { max-width: 640px; }
   min-width: 160px;
 }
 
-.logo-item span {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #ccc;
-  letter-spacing: 1px;
-  white-space: nowrap;
-  transition: color var(--transition);
+.logo-item img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.5;
+  filter: grayscale(100%) brightness(0.5) contrast(0.8);
+  transition: filter var(--transition);
 }
 
-.logo-item:hover span {
-  color: var(--primary);
+.logo-item:hover img {
+  filter: grayscale(0%) brightness(1) contrast(1);
 }
 
 @keyframes scrollLogos {
@@ -883,17 +884,15 @@ p { max-width: 640px; }
 }
 
 .testimonial-card:hover {
-  transform: translateY(-4px);
+  /* transform: translateY(-4px); */
   box-shadow: var(--shadow-hover);
 }
 
 .quote-icon {
   font-size: 3rem;
   color: var(--primary);
-  opacity: 0.3;
   line-height: 1;
-  margin-bottom: 8px;
-  font-family: Georgia, serif;
+  font-family: var(--font);
 }
 
 .testimonial-card blockquote {
@@ -1071,7 +1070,7 @@ p { max-width: 640px; }
 .social-link:hover {
   background: var(--primary);
   border-color: var(--primary);
-  transform: translateY(-2px);
+  /* transform: translateY(-2px); */
 }
 
 .social-link:hover svg {
