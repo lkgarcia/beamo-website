@@ -128,4 +128,150 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // ---------- BROWSER FRAME TYPING ANIMATION ----------
+  const browserFrame = document.querySelector('.browser-frame');
+  if (browserFrame) {
+    const codeLines = browserFrame.querySelectorAll('.code-line-row');
+    let animationStarted = false;
+
+    const typeLineText = (lineEl, callback) => {
+      const content = lineEl.querySelector('.code-content');
+      const fullHTML = content.innerHTML;
+      content.innerHTML = '';
+      content.style.width = 'auto';
+      lineEl.classList.add('typing');
+
+      // Get the plain text length for timing
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = fullHTML;
+      const plainText = tempDiv.textContent;
+      const totalChars = plainText.length;
+
+      let charIndex = 0;
+      const typeSpeed = 60;
+
+      // We'll reveal the full HTML progressively by measuring plain text chars
+      const type = () => {
+        charIndex++;
+        if (charIndex <= totalChars) {
+          // Map charIndex to a position in fullHTML (accounting for tags)
+          let plainCount = 0;
+          let htmlIndex = 0;
+          let inTag = false;
+          for (let i = 0; i < fullHTML.length; i++) {
+            if (fullHTML[i] === '<') inTag = true;
+            if (!inTag) plainCount++;
+            if (fullHTML[i] === '>') inTag = false;
+            if (plainCount >= charIndex && !inTag) {
+              htmlIndex = i + 1;
+              break;
+            }
+          }
+          content.innerHTML = fullHTML.substring(0, htmlIndex);
+          setTimeout(type, typeSpeed);
+        } else {
+          content.innerHTML = fullHTML;
+          lineEl.classList.remove('typing');
+          lineEl.classList.add('typed');
+          if (callback) callback();
+        }
+      };
+
+      setTimeout(type, typeSpeed);
+    };
+
+    const startTypingAnimation = () => {
+      if (animationStarted) return;
+      animationStarted = true;
+
+      // Hide all code content initially
+      codeLines.forEach(line => {
+        const content = line.querySelector('.code-content');
+        content.style.width = '0';
+      });
+
+      const typeNext = (index) => {
+        if (index >= codeLines.length) {
+          // Show blinking cursor on last line
+          const lastLine = codeLines[codeLines.length - 1];
+          lastLine.classList.add('typing');
+          return;
+        }
+        typeLineText(codeLines[index], () => {
+          setTimeout(() => typeNext(index + 1), 200);
+        });
+      };
+
+      setTimeout(() => typeNext(0), 400);
+    };
+
+    const browserObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startTypingAnimation();
+            browserObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    browserObserver.observe(browserFrame);
+  }
+
+  // ---------- FAQ ACCORDION (SINGLE-OPEN) ----------
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const summary = item.querySelector('summary');
+
+    summary.addEventListener('click', e => {
+      e.preventDefault();
+
+      const isOpen = item.hasAttribute('open');
+
+      // Close all other items
+      faqItems.forEach(other => {
+        if (other !== item && other.hasAttribute('open')) {
+          const otherAnswer = other.querySelector('.faq-answer');
+          otherAnswer.style.maxHeight = otherAnswer.scrollHeight + 'px';
+          requestAnimationFrame(() => {
+            otherAnswer.style.maxHeight = '0';
+            otherAnswer.style.padding = '0';
+          });
+          // Remove open after transition
+          otherAnswer.addEventListener('transitionend', function handler() {
+            other.removeAttribute('open');
+            otherAnswer.removeEventListener('transitionend', handler);
+          });
+        }
+      });
+
+      if (!isOpen) {
+        // Open this item
+        item.setAttribute('open', '');
+        const answer = item.querySelector('.faq-answer');
+        answer.style.maxHeight = '0';
+        answer.style.padding = '0';
+        requestAnimationFrame(() => {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          answer.style.padding = '';
+        });
+      } else {
+        // Close this item
+        const answer = item.querySelector('.faq-answer');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+          answer.style.maxHeight = '0';
+          answer.style.padding = '0';
+        });
+        answer.addEventListener('transitionend', function handler() {
+          item.removeAttribute('open');
+          answer.removeEventListener('transitionend', handler);
+        });
+      }
+    });
+  });
 });
