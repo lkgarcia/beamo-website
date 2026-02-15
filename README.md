@@ -1,6 +1,15 @@
 # Beamo Website
 
-Modern static website for Beamo with a clean separation between source code and production build output.
+A modern, responsive landing page for Beamo - showcasing flexible workspace solutions and digital services. Built with vanilla HTML, CSS, and JavaScript, this project emphasizes clean code architecture with a clear separation between source files and optimized production builds.
+
+**Key Features:**
+- 🎨 Modern design with brand-focused color palette (teal #00B8A8, lime green #B4EB45)
+- 📱 Mobile-first responsive design
+- ⚡ Optimized performance with minified assets (~38% size reduction)
+- 🚀 Automated CI/CD deployment to GitHub Pages
+- ♿ Accessibility-focused with semantic HTML and ARIA labels
+
+**Sections:** Navigation, Hero, Services (Flexible Workspace & Digital Solutions), About Us, Customer Showcase, Testimonials, FAQ, and Contact.
 
 ## Project Structure
 
