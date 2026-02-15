@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Log form submission for testing/debugging
     console.log('Contact form submitted:', { name, email, message });
 
-    // Validate inputs
+    // Validate inputs (HTML5 validation already checks email format via type="email")
     if (!name || !email || !message) {
       console.error('Form validation failed: All fields are required');
       alert('Please fill in all fields');
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.textContent = 'Opening email client…';
     btn.disabled = true;
 
-    // Open mailto link
+    // Open mailto link (try-catch for defensive programming, though window.location.href rarely throws)
     try {
       window.location.href = mailtoURL;
       console.log('Successfully triggered mailto operation');
