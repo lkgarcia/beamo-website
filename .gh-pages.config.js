@@ -27,5 +27,8 @@ module.exports = {
   dotfiles: false,
   
   // Commit message
-  message: 'Deploy to GitHub Pages [skip ci]'
+  message: 'Deploy to GitHub Pages [skip ci]',
+  
+  // Silent mode to avoid logging token in error messages
+  silent: process.env.GITHUB_TOKEN ? true : false
 };
