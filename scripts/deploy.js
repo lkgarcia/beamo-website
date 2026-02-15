@@ -18,8 +18,8 @@ console.log('Deploying to GitHub Pages...');
 // Publish to GitHub Pages
 ghpages.publish(publicDir, config, (err) => {
   if (err) {
-    console.error('❌ Deployment failed:', err);
+    console.error(`❌ Deployment failed for directory ${publicDir}:`, err);
     process.exit(1);
   }
-  console.log('✅ Deployment successful!');
+  console.log(`✅ Deployment successful! Published ${publicDir} to GitHub Pages.`);
 });
