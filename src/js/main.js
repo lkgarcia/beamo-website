@@ -3,6 +3,24 @@
    ======================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ---------- FOOTER YEAR & VERSION ----------
+  const currentYearEl = document.getElementById('currentYear');
+  const appVersionEl = document.getElementById('appVersion');
+  
+  if (currentYearEl) {
+    currentYearEl.textContent = new Date().getFullYear();
+  }
+  
+  if (appVersionEl) {
+    // Version will be injected during build process
+    // If VERSION_PLACEHOLDER is present, it means build process ran
+    // Otherwise, don't show version (development mode)
+    const versionText = appVersionEl.getAttribute('data-version');
+    if (versionText && versionText !== 'VERSION_PLACEHOLDER') {
+      appVersionEl.textContent = ` (v${versionText})`;
+    }
+  }
+
   // ---------- NAVBAR SCROLL EFFECT ----------
   const navbar = document.getElementById('navbar');
   const OPACITY_THRESHOLD = 200; // Configurable threshold in pixels
