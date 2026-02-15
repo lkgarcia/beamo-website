@@ -1,6 +1,6 @@
 # Beamo Website
 
-Modern static website for Beamo with a clean separation between source code and production build output.
+Modern static website for Beamo Solutions Inc.
 
 ## Project Structure
 
