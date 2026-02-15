@@ -15,7 +15,7 @@
   <title>Beamo</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -438,7 +438,7 @@
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container footer-container">
-      <p class="footer-copy">&copy; 2026 Beamo. All rights reserved.</p>
+      <p class="footer-copy">&copy; <span id="currentYear"></span> Beamo<span id="appVersion" data-version="1.0.6"></span>. All rights reserved.</p>
       <div class="footer-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
@@ -446,6 +446,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 </body>
 </html>
