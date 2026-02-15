@@ -32,7 +32,7 @@ beamo-website-v2/
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
+- Node.js (v20 or higher)
 - npm
 
 ### Setup
