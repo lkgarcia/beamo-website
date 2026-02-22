@@ -73,7 +73,7 @@ if (fs.existsSync(productsSrcDir)) {
       }
     });
   }
-  processDir(productsSrcDir, path.join(__dirname, '../public/products'), '../../');
+  processDir(productsSrcDir, path.join(__dirname, '../public/products'), '../');
 }
 
 console.log(`✓ HTML processed successfully (version: ${version})`);
